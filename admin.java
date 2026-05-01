@@ -9,7 +9,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.BufferedWriter;
 import java.io.IOException;
-
 public class admin extends checkcus{//for having all the customer details
 	public static void main(String args[]) 
 	{
@@ -23,8 +22,7 @@ public class admin extends checkcus{//for having all the customer details
 			System.out.println("2-see the items");
 			System.out.println("3-see the payment history");
 			System.out.println("4-update data");
-			System.out.println("5-Exit");
-			
+			System.out.println("5-Exit");	
 			System.out.println("Enter a number the above Menu:");
 			int number=s.nextInt();
 			if(number==1)
@@ -89,7 +87,5 @@ public class admin extends checkcus{//for having all the customer details
 			else
 				break;
 		}
-		
-		
 	}
 }
