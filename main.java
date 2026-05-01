@@ -3,7 +3,6 @@ import java.util.Scanner;
 import caseStudy.checkcus;
 import caseStudy.admin;
 import caseStudy.items;
-
 public class main{
 	static String name;
 	static String id;
@@ -24,13 +23,12 @@ public class main{
 				{
 					System.out.println("Enter your customer ID:");
 					id=s.next();
-					System.out.println("Enter yout name:");
-					name=s.next();
 					System.out.println("Enter your password:");
 					String pass=s.next();
 					boolean istrue=cc.check(id, pass);
 					if(istrue==true)
 					{
+						System.out.println("Hello "+name+" !!!!");
 						break;
 					}
 					else
@@ -64,7 +62,6 @@ public class main{
 						else
 							continue;
 					}
-					
 					else
 					{
 						System.out.println("Thank you!..Logged Out Successfully");
@@ -96,6 +93,4 @@ public class main{
 				break;
 		}
 	}
-
-	
 }
