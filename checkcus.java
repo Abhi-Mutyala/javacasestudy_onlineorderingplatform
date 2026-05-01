@@ -7,14 +7,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.BufferedWriter;
 import java.io.IOException;
-
-public class checkcus {
-	String cusname="";
+public class checkcus extends main{
+	
+	static String cusname="";
 	public static void main(String args[]) 
 	{
-		
 		Scanner s=new Scanner(System.in);
-		
 	}
 	boolean check(String id,String pass) throws Exception
 	{
@@ -36,6 +34,7 @@ public class checkcus {
 					{
 						if(hifencount==0 && lines.charAt(i)!='-')
 							cusname+=lines.charAt(i);
+						
 						if(hifencount==1 && lines.charAt(i)!='-')
 						{
 							idd+=lines.charAt(i);
@@ -53,10 +52,12 @@ public class checkcus {
 					}
 					if(idd.equals(id)==true && pass.equals(password)==true)
 					{
+						name=cusname;
 						customer+=1;
 						lines=null;
 					}
 					else
+						cusname="";
 						lines=br.readLine();
 				}
 				if(customer==1)
@@ -87,30 +88,24 @@ public class checkcus {
 			}
 		}
 		FileWriter fw=new FileWriter(f);
-		
 		System.out.println("Enter the your password");
 		String pass=s.next();
 		System.out.println("Enter your phone number:");
 		String phonenumber=s.next();
 		BufferedWriter bw=new BufferedWriter(fw);
-		
-		
 		int idd = linecount;
-		
 		String newcus=name+"-"+(idd+1)+"-"+pass+"-"+phonenumber;
 		if(matter!=null)
 			bw.write(matter+"\n"+newcus);
 		else
 			bw.write("\n"+newcus);
-		
 	//	System.out.println("your id is :"+idd);
 		System.out.println("Your id is :"+(idd+1));
 		System.out.println("your password is :"+pass);
+		name=cusname;
 		bw.close();
 		fw.close();
-		
 	}
-	
 	protected void disp() throws IOException
 	{
 		File f=new File("C:\\Users\\ABHILASH\\Music\\java_case\\login_his.txt");
