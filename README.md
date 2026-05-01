@@ -6,7 +6,7 @@ This project was clearly structured with the exceptional handling which prevents
 All the updation of the stock will be done using the file handling.
 There is an another option for the admins for accessing the entire platform such as the user data,payment history,total items,etc..
 The admin can update the stock,change the cost of the items,add the new stock.
--The platform can be further enhanced by integrating:
+The platform can be further enhanced by integrating:
 - Cart functionality  
 - Payment gateway simulation  
 - Search and filtering system  
