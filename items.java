@@ -7,12 +7,14 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.FileReader;
 import java.util.Scanner;
-import caseStudy.main;
+//import caseStudy.main;
+import java.util.InputMismatchException;
+
 import java.util.Vector;
-import caseStudy.main;//for name for the transaction history
 
 
-public class items {
+
+public class items extends main{
 	
 	int linecount=0;
 	Vector prodid=new Vector();
@@ -44,7 +46,7 @@ public class items {
 		String s=br.readLine();
 		while(s!=null)
 		{
-			System.out.println(s);
+			System.out.println("\n"+s);
 			s=br.readLine();
 		}
 	}
@@ -183,10 +185,10 @@ public class items {
 				
 				checkcus c=new checkcus();
 				
-				main m=new main();
+				//main m=new main();
 				FileWriter frr=new FileWriter(ff);
 				BufferedWriter bww=new BufferedWriter(frr);
-				bww.write(mat+m.name+"-customer id-"+m.id+"\n"+bill+"\ntotal-"+total);
+				bww.write(mat+name+"-customer id-"+id+"\n"+bill+"\ntotal-"+total);
 				
 				bww.close();
 				frr.close();
@@ -208,9 +210,21 @@ public class items {
 				}
 				else
 				{
-					System.out.println("Enter the quantity of the product:");
-					int qu=s.nextInt();
-					if(ii.prodquan.get(ind)>qu)
+					System.out.print("Enter the quantity of the product:");
+					int qu=0;
+					try
+					{
+						qu=s.nextInt();
+										}
+					catch(InputMismatchException e)
+					{
+						System.out.println("Please enter the valid quantity");
+						s.nextLine();	
+						continue;
+					}
+					
+					
+					if(ii.prodquan.get(ind)>=qu)
 					{
 						if(bill!="")
 						{
@@ -259,9 +273,31 @@ public class items {
 					System.out.println("Enter the name of product:");
 					String namee=s.next();
 					System.out.println("Enter the cost of product:");
-					double price=s.nextDouble();
+					
+					double price=0;
+					try
+					{
+						price=s.nextDouble();
+					}
+					catch(InputMismatchException e)
+					{
+						System.out.println("Enter the valid cost");
+						s.nextLine();
+						continue;
+					}
 					System.out.println("Enter the quantity of product:");
-					int q=s.nextInt();
+					int q=0;
+					try
+					{
+						q=s.nextInt();
+					}
+					catch(InputMismatchException e)
+					{
+						System.out.println("Please Enter the valid quantity");
+						s.nextLine();
+						continue;
+					}
+					
 					System.out.println("Enter the type of product:");
 					String type=s.next();
 					iii.prodid.add(id);
@@ -287,10 +323,19 @@ public class items {
 				else
 				{
 					System.out.print("Enter the cost of product:");
-					double cost=s.nextDouble();
+					double cost=0;
+					try
+					{
+						cost=s.nextDouble();
+					}
+					catch(InputMismatchException e)
+					{
+						System.out.println("Please enter the valid cost");
+						s.nextLine();
+						continue;
+					}
 					iii.prodcost.set(a,cost);
 				}
-				
 			}
 			else
 			if(nu==3)
@@ -303,7 +348,18 @@ public class items {
 				else
 				{
 					System.out.print("Enter the quantity of product:");
-					int quan=s.nextInt();
+					int quan=0;
+					
+					try
+					{
+						quan=s.nextInt();
+					}
+					catch(InputMismatchException e)
+					{
+						System.out.println("please enter the valid quantity");
+						s.nextLine();
+						continue;
+					}
 					iii.prodquan.set(a,quan);
 				}
 				
@@ -326,10 +382,5 @@ public class items {
 		}
 		bw.close();
 		fw.close();
-		
-		
-		
-		
-		
 	}
 }
