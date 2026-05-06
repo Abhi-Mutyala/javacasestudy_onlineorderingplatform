@@ -86,6 +86,18 @@ public class admin extends checkcus{//for having all the customer details
 			}
 			else
 				break;
+		}	
+	}
+	 protected void disp() throws IOException // data specifiers // over loading
+	{
+		File f=new File("C:\\Users\\ABHILASH\\Music\\java_case\\login_his.txt");
+		FileReader fr=new FileReader(f);
+		BufferedReader br=new BufferedReader(fr);
+		String line=br.readLine();
+		while(line!=null)
+		{
+			System.out.println(line);
+			line=br.readLine();
 		}
 	}
 }
