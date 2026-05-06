@@ -10,6 +10,13 @@ import java.io.IOException;
 public class checkcus extends main{
 	
 	static String cusname="";
+	static String cusitemname="";//for getting name for transaction history
+	static String cusid="";//for getting id for transaction history
+	checkcus()
+	{
+		super();
+	}
+	
 	public static void main(String args[]) 
 	{
 		Scanner s=new Scanner(System.in);
@@ -53,6 +60,8 @@ public class checkcus extends main{
 					if(idd.equals(id)==true && pass.equals(password)==true)
 					{
 						name=cusname;
+						cusitemname=cusname;
+						cusid=id;
 						customer+=1;
 						lines=null;
 					}
@@ -106,7 +115,7 @@ public class checkcus extends main{
 		bw.close();
 		fw.close();
 	}
-	protected void disp() throws IOException
+	protected void disp() throws IOException // data specifiers
 	{
 		File f=new File("C:\\Users\\ABHILASH\\Music\\java_case\\login_his.txt");
 		FileReader fr=new FileReader(f);
@@ -118,4 +127,4 @@ public class checkcus extends main{
 			line=br.readLine();
 		}
 	}
-}
+}	
