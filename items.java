@@ -12,11 +12,24 @@ import java.util.InputMismatchException;
 
 import java.util.Vector;
 
+interface itemss
+{
+	void disp() throws IOException;
+}
 
 
-public class items extends main{
+
+public class items extends main implements itemss {
+
 	
-	int linecount=0;
+	
+	int linecount;
+	
+	items()
+	{
+		linecount=0;
+	}
+	
 	Vector prodid=new Vector();
 	Vector prodname=new Vector();
 	Vector<Double> prodcost=new Vector<>();
@@ -38,7 +51,7 @@ public class items extends main{
 			System.out.println("Error occured");
 		}
 	}
-	void disp() throws IOException
+	public void disp() throws IOException 
 	{
 		File f=new File("C:\\Users\\ABHILASH\\Music\\java_case\\items.txt");
 		FileReader fr=new FileReader(f);
@@ -188,7 +201,8 @@ public class items extends main{
 				//main m=new main();
 				FileWriter frr=new FileWriter(ff);
 				BufferedWriter bww=new BufferedWriter(frr);
-				bww.write(mat+name+"-customer id-"+id+"\n"+bill+"\ntotal-"+total);
+			
+				bww.write(mat+c.cusitemname+"-customer id-"+c.cusid+"\n"+bill+"\ntotal-"+total);
 				
 				bww.close();
 				frr.close();
@@ -261,7 +275,7 @@ public class items extends main{
 			System.out.println("1-add product");
 			System.out.println("2-update cost");
 			System.out.println("3-update quantity");
-			System.out.println("4-break");
+			System.out.println("4-return back");
 			System.out.print("Enter the number from the above:");
 			int nu=s.nextInt();
 			if(nu==1)
