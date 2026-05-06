@@ -3,9 +3,18 @@ import java.util.Scanner;
 import caseStudy.checkcus;
 import caseStudy.admin;
 import caseStudy.items;
+
+
 public class main{
 	static String name;
 	static String id;
+	
+	main()
+	{
+		name="";
+		id="";
+	}
+	
 	public static void main(String args[]) throws Exception
 	{
 		Scanner s=new Scanner(System.in);
@@ -54,19 +63,27 @@ public class main{
 						
 						
 						System.out.println("1-press 1 to buy and 2 to log out:");
+						
 						int ch=s.nextInt();
 						if(ch==1)
 						{
 							i.selling();
 						}
 						else
+						if(ch==2)
 							continue;
+						else
+							System.out.println("Enter the correct input");
 					}
 					else
+					if(option==2)
 					{
 						System.out.println("Thank you!..Logged Out Successfully");
 						continue;
 					}
+					else
+						System.out.println("Enter the correct input");
+						
 				}
 				else
 				{
@@ -91,6 +108,8 @@ public class main{
 			else
 			if(check.equals("exit")==true)
 				break;
+			else
+				System.out.println("INVALID INPUT");
 		}
 	}
 }
